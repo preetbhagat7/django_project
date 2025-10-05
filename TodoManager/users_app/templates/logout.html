@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+   Loggedout Page
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center mb-5">
+            <form method="post" action="{% url 'logout' %}">
+               {% csrf_token %}
+               <h2 class="fw-bold">Thank you for using <span class="text-primary">  TodoManager  </span> </h2>
+            </form>
+            <a href="{% url "login" %}"><button type="button" class="btn btn-danger">Login Again</button></a>
+        </div>
+    </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock content %}

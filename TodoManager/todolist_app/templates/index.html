@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+   HomePage
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+      <div class="text-center">
+         <img src="{% static 'image/note.jpg' %}" class="rounded" alt="note-image"height= 300 width=750>
+      </div>
+      <div class="text-center mt-5">
+         <p class="h1">Quick And Easy To Access Tasks</p>
+         <p class="h4">Stay Organized. Stay Productive.</p>
+         <p>Small Steps Everyday Leads To Big Result.</p>
+
+         <button type="button" class="btn btn-primary">Getting Started</button>
+      </div>     
+   </div>
+{% endblock content %}
