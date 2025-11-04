@@ -78,16 +78,28 @@ WSGI_APPLICATION = 'TodoManager.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'todoDB',      # database name
-        'USER': 'root',         # your MySQL username
-        'PASSWORD': 'Gurdaspuria@7', # replace with your MySQL root password
-        'HOST': '127.0.0.1',    # localhost
-        'PORT': '3306',         # default MySQL port
+import os
+import dj_database_url  # add this import at the top if you install it
+
+if os.environ.get('RENDER'):  # detect if app is running on Render
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'todoDB',
+            'USER': 'root',
+            'PASSWORD': 'Gurdaspuria@7',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
+    }
+
 
 
 # Password validation
@@ -141,5 +153,6 @@ LOGIN_REDIRECT_URL = "todolist"
 LOGOUT_REDIRECT_URL = "login"
 
 LOGIN_URL = "login"
+
 
 
