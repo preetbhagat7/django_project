@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todolist_app',
     'users_app',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -141,6 +143,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
     ]
+#Default file storage
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dgzcdnay8',
+    'API_KEY': '187757735678515',
+    'API_SECRET': 'NAjZrl3rwP-3_RmOopki_Nld9bQ'
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -154,6 +165,7 @@ LOGIN_REDIRECT_URL = "todolist"
 LOGOUT_REDIRECT_URL = "login"
 
 LOGIN_URL = "login"
+
 
 
 
